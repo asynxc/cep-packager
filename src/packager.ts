@@ -27,6 +27,10 @@ export async function createInstallers(opts) {
   opts.paths.windowsZxpFile = path.join(opts.paths.windowsInstallerFiles, 'bundle.zxp')
   opts.paths.macOsInstallerFile = path.join(opts.paths.macOsMeta, 'installer.pkg')
   opts.paths.windowsNsisConfFile = path.join(opts.paths.windowsMeta, 'nsis.conf')
+  opts.paths.vendors = opts.paths.vendor || {}
+  opts.paths.vendors.macos = opts.paths.vendor.macos || path.join(opts.paths.cwd, 'vendor/ExManCmd_mac.zip')
+  opts.paths.vendors.win = opts.paths.vendor.win || path.join(opts.paths.cwd, 'vendor/ExManCmd_win.zip')
+  
   try {
     rmrf(opts.paths.cwd)
     mkdirSync(opts.paths.cwd)

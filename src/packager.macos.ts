@@ -51,9 +51,7 @@ function createMacOsScripts(opts) {
   cp(opts.paths.zxpFile, opts.paths.macOsZxpFile)
   // add ExManCmd
   if (!opts.cs) {
-    const exManCmdSrc = path.join(__dirname, '../vendor/ExManCmd_mac.zip')
-    // cpr(exManCmdSrc, opts.paths.macOsScripts)
-    execSync(`unzip "${exManCmdSrc}" -d "${opts.paths.macOsScripts}/ExManCmd_mac"`)
+    execSync(`unzip "${opts.paths.vendors.macos}" -d "${opts.paths.macOsScripts}/ExManCmd_mac"`)
   }
 }
 
